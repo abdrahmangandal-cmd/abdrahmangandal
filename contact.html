@@ -1,22 +1,157 @@
-<div class="links">
-  <div class="link">
-    <div>Institutional email</div>
-    <a class="mail-text" href="mailto:abd.gandal@edu.unito.it">abd.gandal@edu.unito.it</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Abd Rahman Gandal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      background: #f5f3ee;
+      color: #1a1814;
+      line-height: 1.6;
+    }
+
+    nav {
+      background: #f5f3ee;
+      border-bottom: 1px solid rgba(26,24,20,0.1);
+      padding: 0 32px;
+      height: 56px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 18px;
+      color: #1a1814;
+      text-decoration: none;
+    }
+
+    .nav-links { display: flex; gap: 24px; }
+    .nav-links a {
+      font-size: 13px;
+      color: #5a5650;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: #1a1814; }
+
+    .wrap {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 56px 32px 80px;
+    }
+
+    h1 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 42px;
+      font-weight: 400;
+      margin-bottom: 12px;
+    }
+
+    .intro {
+      font-size: 14px;
+      color: #5a5650;
+      margin-bottom: 36px;
+    }
+
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .link {
+      background: #ffffff;
+      border: 1px solid rgba(26,24,20,0.1);
+      border-radius: 10px;
+      padding: 14px 18px;
+      transition: border-color 0.2s;
+    }
+
+    .link:hover { border-color: rgba(26,24,20,0.25); }
+
+    .link-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #9a948c;
+      margin-bottom: 4px;
+    }
+
+    .link a {
+      font-size: 14px;
+      color: #1a1814;
+      text-decoration: none;
+      word-break: break-all;
+      transition: color 0.2s;
+    }
+
+    .link a:hover {
+      color: #1e3a5f;
+      text-decoration: underline;
+    }
+
+    @media (max-width: 520px) {
+      nav { padding: 0 20px; }
+      .wrap { padding: 40px 20px 60px; }
+      h1 { font-size: 32px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="brand" href="index.html">Abd Rahman Gandal</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="cv.html">CV</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <div class="wrap">
+    <h1>Contact</h1>
+    <p class="intro">Feel free to reach out for academic inquiries, collaborations, or professional opportunities.</p>
+
+    <div class="links">
+
+      <div class="link">
+        <div class="link-label">Institutional email</div>
+        <a href="mailto:abd.gandal@edu.unito.it">abd.gandal@edu.unito.it</a>
+      </div>
+
+      <div class="link">
+        <div class="link-label">Personal email</div>
+        <a href="mailto:abdrahmangandal@gmail.com">abdrahmangandal@gmail.com</a>
+      </div>
+
+      <div class="link">
+        <div class="link-label">Backup email</div>
+        <a href="mailto:abdrahman_gandal@outlook.it">abdrahman_gandal@outlook.it</a>
+      </div>
+
+      <div class="link">
+        <div class="link-label">LinkedIn</div>
+        <a href="https://www.linkedin.com/in/abd-rahman-gandal-02724b29a/" target="_blank">Abd Rahman Gandal</a>
+      </div>
+
+      <div class="link">
+        <div class="link-label">GitHub</div>
+        <a href="https://github.com/tuousername" target="_blank">Abd Rahman Gandal</a>
+      </div>
+
+    </div>
   </div>
-  <div class="link">
-    <div>Personal email</div>
-    <a class="mail-text" href="mailto:abdrahmangandal@gmail.com">abdrahmangandal@gmail.com</a>
-  </div>
-  <div class="link">
-    <div>Backup email</div>
-    <a class="mail-text" href="mailto:abdrahman_gandal@outlook.it">abdrahman_gandal@outlook.it</a>
-  </div>
-  <div class="link">
-    <div>LinkedIn</div>
-    <a class="mail-text" href="https://www.linkedin.com/in/abd-rahman-gandal-02724b29a/">Abd Rahman Gandal</a>
-  </div>
-  <div class="link">
-    <div>GitHub</div>
-    <a class="mail-text" href="https://github.com/tuousername">Abd Rahman Gandal</a>
-  </div>
-</div>
+
+</body>
+</html>
