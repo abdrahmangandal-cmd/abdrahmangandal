@@ -18,6 +18,39 @@
     .links{margin-top:28px;display:flex;flex-direction:column;gap:12px}
     .link{display:block;background:white;border:1px solid rgba(26,24,20,0.1);border-radius:10px;padding:14px 16px;text-decoration:none;color:#1a1814}
     .sub{display:block;font-size:12px;color:#9a948c;margin-top:3px}
+    <style>
+  .links {
+    margin-top: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .link {
+    background: white;
+    border: 1px solid rgba(26,24,20,0.1);
+    border-radius: 10px;
+    padding: 14px 16px;
+    color: #1a1814;
+  }
+
+  .link div {
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+
+  .mail-text {
+    color: #5a5650;
+    text-decoration: none;
+    user-select: text;
+    word-break: break-all;
+  }
+
+  .mail-text:hover {
+    color: #1e3a5f;
+    text-decoration: underline;
+  }
+</style>
   </style>
 </head>
 <body>
@@ -37,15 +70,26 @@
       Feel free to reach out for academic inquiries, collaborations, or professional opportunities.
     </p>
 
-    <div class="links">
-      <a class="link" href="mailto:your-email@example.com">
-        Email
-        <span class="sub">your-email@example.com</span>
-      </a>
+<div class="links">
+  <div class="link">
+    <div>Email istituzionale</div>
+    <a class="mail-text" href="mailto:abd.gandal@edu.unito.it">abd.gandal@edu.unito.it</a>
+  </div>
+
+  <div class="link">
+    <div>Email personale</div>
+    <a class="mail-text" href="mailto:abdrahmangandal@gmail.com">abdrahmangandal@gmail.com</a>
+  </div>
+
+  <div class="link">
+    <div>Email backup</div>
+    <a class="mail-text" href="mailto:abdrahman_gandal@outlook.it">abdrahman_gandal@outlook.it</a>
+  </div>
+</div>
 
       <a class="link" href="https://www.linkedin.com/in/your-linkedin" target="_blank">
         LinkedIn
-        <span class="sub">linkedin.com/in/your-linkedin</span>
+        <span class="sub">https://www.linkedin.com/in/abd-rahman-gandal-02724b29a/</span>
       </a>
 
       <a class="link" href="https://github.com/your-github" target="_blank">
