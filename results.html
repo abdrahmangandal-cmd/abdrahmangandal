@@ -3,404 +3,327 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>Research Results — Abd Rahman Gandal</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
 
   <style>
+    * { box-sizing: border-box; }
+    [hidden] { display: none !important; }
 
-    body{
-      font-family:'DM Sans',system-ui,sans-serif;
-      background:#f5f3ee;
-      color:#1a1814;
-      line-height:1.6;
-      margin:0;
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      background: #f5f3ee;
+      color: #1a1814;
+      line-height: 1.6;
+      margin: 0;
     }
 
-    nav{
-      background:#f5f3ee;
-      border-bottom:1px solid rgba(26,24,20,0.1);
-      padding:16px 32px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
+    nav {
+      background: #f5f3ee;
+      border-bottom: 1px solid rgba(26,24,20,0.1);
+      padding: 16px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px 24px;
     }
 
-    nav a{
-      text-decoration:none;
-      color:#5a5650;
-      font-size:13px;
-      margin-left:18px;
+    nav a {
+      text-decoration: none;
+      color: #5a5650;
+      font-size: 13px;
     }
 
-    nav a:hover{
-      color:#1a1814;
+    .nav-links { display: flex; flex-wrap: wrap; gap: 10px 18px; }
+    nav a:hover, nav a[aria-current="page"] { color: #1a1814; }
+    a:focus-visible, button:focus-visible { outline: 2px solid #44685c; outline-offset: 4px; }
+
+    .brand {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 18px;
+      color: #1a1814;
     }
 
-    .brand{
-      font-family:'DM Serif Display',Georgia,serif;
-      font-size:18px;
-      color:#1a1814;
-      margin-left:0;
+    .wrap { max-width: 1164px; margin: 0 auto; padding: 48px 32px; }
+
+    h1 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 42px;
+      font-weight: 400;
+      margin-bottom: 18px;
     }
 
-    .wrap{
-      max-width:1100px;
-      margin:0 auto;
-      padding:48px 32px;
+    p.lead { max-width: 780px; color: #5a5650; margin-bottom: 10px; }
+    .research-meta { color: #766f67; font-size: 13px; margin-bottom: 40px; }
+
+    .section-title {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 28px;
+      font-weight: 400;
+      margin-top: 45px;
+      margin-bottom: 8px;
     }
 
-    h1{
-      font-family:'DM Serif Display',Georgia,serif;
-      font-size:42px;
-      font-weight:400;
-      margin-bottom:18px;
+    .hint, .status { color: #5a5650; font-size: 13px; margin: 0 0 20px; }
+    .status.error { color: #8a3e2f; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+
+    .card {
+      min-width: 0;
+      background: white;
+      border: 1px solid rgba(26,24,20,0.1);
+      border-radius: 12px;
+      overflow: hidden;
     }
 
-    p.lead{
-      max-width:780px;
-      color:#5a5650;
-      margin-bottom:10px;
+    .image-link { display: block; color: inherit; text-decoration: none; }
+    .image-link:focus-visible { outline-offset: -4px; }
+    .card img { width: 100%; height: auto; display: block; background: white; }
+    .image-error { padding: 36px 20px; color: #5a5650; font-size: 13px; }
+    .card-content { padding: 18px 20px 20px; }
+
+    .card h3 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 22px;
+      font-weight: 400;
+      margin: 0 0 4px;
+      overflow-wrap: anywhere;
     }
 
-    .research-meta{
-      color:#9a948c;
-      font-size:13px;
-      margin-bottom:40px;
+    .meta { font-size: 12px; color: #766f67; }
+    .text { font-size: 13px; color: #5a5650; margin-top: 8px; }
+
+    .retry {
+      font: inherit;
+      font-size: 13px;
+      color: #1a1814;
+      background: white;
+      border: 1px solid rgba(26,24,20,0.2);
+      border-radius: 6px;
+      padding: 8px 14px;
+      cursor: pointer;
+      margin-bottom: 20px;
     }
 
-    .section-title{
-      font-family:'DM Serif Display',Georgia,serif;
-      font-size:28px;
-      font-weight:400;
-      margin-top:45px;
-      margin-bottom:18px;
+    @media (max-width: 750px) {
+      nav { padding: 16px 20px; }
+      .nav-links { gap: 10px 14px; }
+      .wrap { padding: 36px 20px; }
+      .grid { grid-template-columns: 1fr; }
+      h1 { font-size: 36px; }
     }
-
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:18px;
-    }
-
-    .card{
-      background:white;
-      border:1px solid rgba(26,24,20,0.1);
-      border-radius:12px;
-      overflow:hidden;
-    }
-
-    .card img{
-      width:100%;
-      display:block;
-      background:white;
-    }
-
-    .card-content{
-      padding:18px 20px 20px;
-    }
-
-    .card h2{
-      font-family:'DM Serif Display',Georgia,serif;
-      font-size:22px;
-      font-weight:400;
-      margin:0 0 4px;
-    }
-
-    .meta{
-      font-size:12px;
-      color:#9a948c;
-    }
-
-    .text{
-      font-size:13px;
-      color:#5a5650;
-      margin-top:8px;
-    }
-
-    @media(max-width:750px){
-
-      nav{
-        padding:16px 20px;
-      }
-
-      nav a{
-        margin-left:10px;
-      }
-
-      .wrap{
-        padding:36px 20px;
-      }
-
-      .grid{
-        grid-template-columns:1fr;
-      }
-
-      h1{
-        font-size:36px;
-      }
-
-    }
-
   </style>
 </head>
 
-
 <body>
-
-  <nav>
-
-    <a class="brand" href="index.html">
-      Abd Rahman Gandal
-    </a>
-
-    <div>
+  <nav aria-label="Main navigation">
+    <a class="brand" href="index.html">Abd Rahman Gandal</a>
+    <div class="nav-links">
       <a href="index.html">Home</a>
       <a href="cv.html">CV</a>
       <a href="projects.html">Projects</a>
-      <a href="results.html">Results</a>
+      <a href="results.html" aria-current="page">Results</a>
       <a href="contact.html">Contact</a>
     </div>
-
   </nav>
 
-
-  <div class="wrap">
-
+  <main class="wrap">
     <h1>Research Results</h1>
-
     <p class="lead">
       Country-level impulse response functions from my research on the
       macroeconomic effects of oil price shocks across emerging markets.
     </p>
-
-    <div class="research-meta">
-      Emerging Markets · Local Projections · Monthly Data
-    </div>
-
-
-    <h2 class="section-title">
-      Country Results
-    </h2>
-
-
-    <div class="grid">
-
-
-      <!-- KAZAKHSTAN -->
-
-      <div class="card">
-
-        <img
-          src="images/kazakhstan.png"
-          alt="Kazakhstan impulse response functions">
-
-        <div class="card-content">
-
-          <h2>Kazakhstan</h2>
-
-          <div class="meta">
-            Oil-exporting economy
-          </div>
-
-          <div class="text">
-            Impulse responses following an identified oil price shock.
-          </div>
-
-        </div>
-
-      </div>
-
-
-
-      <!-- RUSSIA -->
-
-      <div class="card">
-
-        <img
-          src="images/russia.png"
-          alt="Russia impulse response functions">
-
-        <div class="card-content">
-
-          <h2>Russia</h2>
-
-          <div class="meta">
-            Oil-exporting economy
-          </div>
-
-          <div class="text">
-            Impulse responses following an identified oil price shock.
-          </div>
-
-        </div>
-
-      </div>
-
-
-
-      <!-- SOUTH AFRICA -->
-
-      <div class="card">
-
-        <img
-          src="images/south-africa.png"
-          alt="South Africa impulse response functions">
-
-        <div class="card-content">
-
-          <h2>South Africa</h2>
-
-          <div class="meta">
-            Emerging market economy
-          </div>
-
-          <div class="text">
-            Impulse responses following an identified oil price shock.
-          </div>
-
-        </div>
-
-      </div>
-
-
-
-      <!-- BRAZIL -->
-
-      <div class="card">
-
-        <img
-          src="images/brazil.png"
-          alt="Brazil impulse response functions">
-
-        <div class="card-content">
-
-          <h2>Brazil</h2>
-
-          <div class="meta">
-            Emerging market economy
-          </div>
-
-          <div class="text">
-            Impulse responses following an identified oil price shock.
-          </div>
-
-        </div>
-
-      </div>
-
-
-
-      <!-- INDONESIA -->
-
-      <div class="card">
-
-        <img
-          src="images/indonesia.png"
-          alt="Indonesia impulse response functions">
-
-        <div class="card-content">
-
-          <h2>Indonesia</h2>
-
-          <div class="meta">
-            Emerging market economy
-          </div>
-
-          <div class="text">
-            Impulse responses following an identified oil price shock.
-          </div>
-
-        </div>
-
-      </div>
-
-
-
-      <!-- TURKEY -->
-
-      <div class="card">
-
-        <img
-          src="images/turkey.png"
-          alt="Turkey impulse response functions">
-
-        <div class="card-content">
-
-          <h2>Turkey</h2>
-
-          <div class="meta">
-            Oil-importing economy
-          </div>
-
-          <div class="text">
-            Impulse responses following an identified oil price shock.
-          </div>
-
-        </div>
-
-      </div>
-
-
-
-      <!-- CHINA -->
-
-      <div class="card">
-
-        <img
-          src="images/china.png"
-          alt="China impulse response functions">
-
-        <div class="card-content">
-
-          <h2>China</h2>
-
-          <div class="meta">
-            Emerging market economy
-          </div>
-
-          <div class="text">
-            Impulse responses following an identified oil price shock.
-          </div>
-
-        </div>
-
-      </div>
-
-
-
-      <!-- CHILE -->
-
-      <div class="card">
-
-        <img
-          src="images/chile.png"
-          alt="Chile impulse response functions">
-
-        <div class="card-content">
-
-          <h2>Chile</h2>
-
-          <div class="meta">
-            Emerging market economy
-          </div>
-
-          <div class="text">
-            Impulse responses following an identified oil price shock.
-          </div>
-
-        </div>
-
-      </div>
-
-
-    </div>
-
-  </div>
-
+    <div class="research-meta">Emerging Markets · Local Projections · Monthly Data</div>
+
+    <section aria-labelledby="country-results-heading">
+      <h2 class="section-title" id="country-results-heading">Country Results</h2>
+      <p class="hint">Select a figure to open the full-resolution image in a new tab.</p>
+      <p class="status" id="gallery-status" role="status" aria-live="polite" hidden></p>
+      <button class="retry" id="retry-button" type="button" hidden>Try again</button>
+      <noscript><p>Please enable JavaScript to display the research figures.</p></noscript>
+      <div class="grid" id="results-grid" aria-busy="false"></div>
+    </section>
+  </main>
+
+  <script>
+    "use strict";
+
+    /*
+     * CONFIGURAZIONE
+     *
+     * Repository PUBBLICO: non occorrono token o password.
+     * Se results.html si trova alla radice del sito su GitHub Pages,
+     * owner e repo vengono ricavati da:
+     *   https://USERNAME.github.io/results.html
+     *   https://USERNAME.github.io/REPOSITORY/results.html
+     *
+     * Per dominio personalizzato, anteprima locale o pagina in sottocartella,
+     * inserisci esplicitamente owner e repo qui sotto.
+     * Esempio: owner: "tuo-username", repo: "tuo-username.github.io".
+     *
+     * folder: percorso delle immagini NEL REPOSITORY, es. "images",
+     *         "docs/images" o "images/irf". Le sottocartelle non vengono lette.
+     * branch: vuoto = branch predefinito; indica "gh-pages" se le foto sono lì.
+     *
+     * Ogni immagine genera una scheda: usa questa cartella solo per i grafici.
+     * Nomi consigliati: kazakhstan.png, Kazakhstan_IRF.png, south-africa.png.
+     * Aggiungi/rimuovi le foto su GitHub, poi ricarica la pagina pubblicata.
+     * Le schede si ordinano alfabeticamente. Nessuna lista da aggiornare.
+     */
+    const CONFIG = {
+      owner: "",
+      repo: "",
+      branch: "",
+      folder: "images"
+    };
+
+    // Mantiene le descrizioni specifiche già presenti nella pagina originale.
+    // Gli altri paesi ricevono la descrizione generica senza richiedere modifiche.
+    const COUNTRY_META = new Map([
+      ["kazakhstan", "Oil-exporting economy"],
+      ["russia", "Oil-exporting economy"],
+      ["turkey", "Oil-importing economy"]
+    ]);
+
+    const grid = document.getElementById("results-grid");
+    const status = document.getElementById("gallery-status");
+    const retry = document.getElementById("retry-button");
+    let loading = false;
+
+    function countryName(filename) {
+      const stem = filename
+        .replace(/\.[^.]+$/, "")
+        .replace(/[_-]+/g, " ")
+        .replace(/^IRFs?\s+|\s+IRFs?$/gi, "")
+        .replace(/\s+/g, " ")
+        .trim();
+      return (stem || "Research figure").toLowerCase().replace(/\b[a-z]/g, letter => letter.toUpperCase());
+    }
+
+    function contentsURL() {
+      const match = window.location.hostname.match(/^([^.]+)\.github\.io$/i);
+      const owner = CONFIG.owner.trim() || (match ? match[1] : "");
+      const directories = window.location.pathname.split("/").filter(Boolean);
+      if (!window.location.pathname.endsWith("/")) directories.pop();
+      const inferredRepo = match ? (directories[0] ? decodeURIComponent(directories[0]) : match[1] + ".github.io") : "";
+      const repo = CONFIG.repo.trim() || inferredRepo;
+
+      if (!owner || !repo) {
+        throw new Error("Set CONFIG.owner and CONFIG.repo, or open results.html on its published GitHub Pages URL.");
+      }
+
+      const folder = CONFIG.folder.split("/").filter(Boolean).map(encodeURIComponent).join("/");
+      const url = new URL("https://api.github.com/repos/" + encodeURIComponent(owner) + "/" + encodeURIComponent(repo) + "/contents/" + folder);
+      if (CONFIG.branch.trim()) url.searchParams.set("ref", CONFIG.branch.trim());
+      return url;
+    }
+
+    function makeCard(file) {
+      const country = countryName(file.name);
+      const card = document.createElement("article");
+      card.className = "card";
+
+      const link = document.createElement("a");
+      link.className = "image-link";
+      // download_url viene aggiornato a ogni caricamento della pagina.
+      const imageURL = new URL(file.download_url);
+      if (file.sha) imageURL.searchParams.set("v", file.sha);
+      link.href = imageURL.href;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      link.setAttribute("aria-label", "Open " + country + " figure at full resolution (new tab)");
+
+      const img = document.createElement("img");
+      img.alt = country + " impulse response functions";
+      img.loading = "lazy";
+      img.decoding = "async";
+      img.addEventListener("error", () => {
+        img.hidden = true;
+        const notice = document.createElement("div");
+        notice.className = "image-error";
+        notice.textContent = "Preview unavailable. Select here to open the figure.";
+        link.append(notice);
+      }, { once: true });
+      img.src = imageURL.href;
+      link.append(img);
+
+      const content = document.createElement("div");
+      content.className = "card-content";
+      const title = document.createElement("h3");
+      title.textContent = country;
+      const meta = document.createElement("div");
+      meta.className = "meta";
+      meta.textContent = COUNTRY_META.get(country.toLowerCase()) || "Emerging market economy";
+      const description = document.createElement("div");
+      description.className = "text";
+      description.textContent = "Impulse responses following an identified oil price shock.";
+      content.append(title, meta, description);
+      card.append(link, content);
+      return card;
+    }
+
+    async function loadResults() {
+      if (loading) return;
+      loading = true;
+      grid.setAttribute("aria-busy", "true");
+      grid.replaceChildren();
+      status.hidden = false;
+      status.className = "status";
+      status.textContent = "Loading figures…";
+      retry.hidden = true;
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), 15000);
+
+      try {
+        const response = await fetch(contentsURL(), {
+          headers: { Accept: "application/vnd.github+json" },
+          cache: "no-store",
+          credentials: "omit",
+          signal: controller.signal
+        });
+
+        if (!response.ok) {
+          throw new Error("GitHub returned HTTP " + response.status + ". Check public visibility, owner, repo, folder and branch; 403/429 may indicate a rate limit.");
+        }
+
+        const files = await response.json();
+        if (!Array.isArray(files)) throw new Error("CONFIG.folder must point to a directory.");
+
+        const images = files.filter(file =>
+          file.type === "file" &&
+          typeof file.name === "string" &&
+          /\.(png|jpe?g|webp|gif|svg|avif)$/i.test(file.name) &&
+          typeof file.download_url === "string" &&
+          file.download_url.startsWith("https://raw.githubusercontent.com/")
+        ).sort((a, b) =>
+          countryName(a.name).localeCompare(countryName(b.name), "en", { sensitivity: "base", numeric: true }) ||
+          a.name.localeCompare(b.name, "en", { numeric: true })
+        );
+
+        const cards = document.createDocumentFragment();
+        images.forEach(file => cards.append(makeCard(file)));
+        grid.replaceChildren(cards);
+        status.textContent = images.length
+          ? images.length + (images.length === 1 ? " figure" : " figures")
+          : "No figures have been published yet.";
+      } catch (error) {
+        console.error("Research gallery:", error);
+        status.className = "status error";
+        status.textContent = "The figures could not be loaded. Please try again later.";
+        retry.hidden = false;
+      } finally {
+        clearTimeout(timer);
+        grid.setAttribute("aria-busy", "false");
+        loading = false;
+      }
+    }
+
+    retry.addEventListener("click", loadResults);
+    loadResults();
+  </script>
 </body>
 </html>
