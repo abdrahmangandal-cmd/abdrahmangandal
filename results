@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Research Results — Abd Rahman Gandal</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+
+  <style>
+
+    body{
+      font-family:'DM Sans',system-ui,sans-serif;
+      background:#f5f3ee;
+      color:#1a1814;
+      line-height:1.6;
+      margin:0;
+    }
+
+    nav{
+      background:#f5f3ee;
+      border-bottom:1px solid rgba(26,24,20,0.1);
+      padding:16px 32px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    nav a{
+      text-decoration:none;
+      color:#5a5650;
+      font-size:13px;
+      margin-left:18px;
+    }
+
+    nav a:hover{
+      color:#1a1814;
+    }
+
+    .brand{
+      font-family:'DM Serif Display',Georgia,serif;
+      font-size:18px;
+      color:#1a1814;
+      margin-left:0;
+    }
+
+    .wrap{
+      max-width:1100px;
+      margin:0 auto;
+      padding:48px 32px;
+    }
+
+    h1{
+      font-family:'DM Serif Display',Georgia,serif;
+      font-size:42px;
+      font-weight:400;
+      margin-bottom:18px;
+    }
+
+    p.lead{
+      max-width:780px;
+      color:#5a5650;
+      margin-bottom:10px;
+    }
+
+    .research-meta{
+      color:#9a948c;
+      font-size:13px;
+      margin-bottom:40px;
+    }
+
+    .section-title{
+      font-family:'DM Serif Display',Georgia,serif;
+      font-size:28px;
+      font-weight:400;
+      margin-top:45px;
+      margin-bottom:18px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:18px;
+    }
+
+    .card{
+      background:white;
+      border:1px solid rgba(26,24,20,0.1);
+      border-radius:12px;
+      overflow:hidden;
+    }
+
+    .card img{
+      width:100%;
+      display:block;
+      background:white;
+    }
+
+    .card-content{
+      padding:18px 20px 20px;
+    }
+
+    .card h2{
+      font-family:'DM Serif Display',Georgia,serif;
+      font-size:22px;
+      font-weight:400;
+      margin:0 0 4px;
+    }
+
+    .meta{
+      font-size:12px;
+      color:#9a948c;
+    }
+
+    .text{
+      font-size:13px;
+      color:#5a5650;
+      margin-top:8px;
+    }
+
+    @media(max-width:750px){
+
+      nav{
+        padding:16px 20px;
+      }
+
+      nav a{
+        margin-left:10px;
+      }
+
+      .wrap{
+        padding:36px 20px;
+      }
+
+      .grid{
+        grid-template-columns:1fr;
+      }
+
+      h1{
+        font-size:36px;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+  <nav>
+
+    <a class="brand" href="index.html">
+      Abd Rahman Gandal
+    </a>
+
+    <div>
+      <a href="index.html">Home</a>
+      <a href="cv.html">CV</a>
+      <a href="projects.html">Projects</a>
+      <a href="results.html">Results</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+  </nav>
+
+
+  <div class="wrap">
+
+    <h1>Research Results</h1>
+
+    <p class="lead">
+      Country-level impulse response functions from my research on the
+      macroeconomic effects of oil price shocks across emerging markets.
+    </p>
+
+    <div class="research-meta">
+      Emerging Markets · Local Projections · Monthly Data
+    </div>
+
+
+    <h2 class="section-title">
+      Country Results
+    </h2>
+
+
+    <div class="grid">
+
+
+      <!-- KAZAKHSTAN -->
+
+      <div class="card">
+
+        <img
+          src="images/kazakhstan.png"
+          alt="Kazakhstan impulse response functions">
+
+        <div class="card-content">
+
+          <h2>Kazakhstan</h2>
+
+          <div class="meta">
+            Oil-exporting economy
+          </div>
+
+          <div class="text">
+            Impulse responses following an identified oil price shock.
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- RUSSIA -->
+
+      <div class="card">
+
+        <img
+          src="images/russia.png"
+          alt="Russia impulse response functions">
+
+        <div class="card-content">
+
+          <h2>Russia</h2>
+
+          <div class="meta">
+            Oil-exporting economy
+          </div>
+
+          <div class="text">
+            Impulse responses following an identified oil price shock.
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- SOUTH AFRICA -->
+
+      <div class="card">
+
+        <img
+          src="images/south-africa.png"
+          alt="South Africa impulse response functions">
+
+        <div class="card-content">
+
+          <h2>South Africa</h2>
+
+          <div class="meta">
+            Emerging market economy
+          </div>
+
+          <div class="text">
+            Impulse responses following an identified oil price shock.
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- BRAZIL -->
+
+      <div class="card">
+
+        <img
+          src="images/brazil.png"
+          alt="Brazil impulse response functions">
+
+        <div class="card-content">
+
+          <h2>Brazil</h2>
+
+          <div class="meta">
+            Emerging market economy
+          </div>
+
+          <div class="text">
+            Impulse responses following an identified oil price shock.
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- INDONESIA -->
+
+      <div class="card">
+
+        <img
+          src="images/indonesia.png"
+          alt="Indonesia impulse response functions">
+
+        <div class="card-content">
+
+          <h2>Indonesia</h2>
+
+          <div class="meta">
+            Emerging market economy
+          </div>
+
+          <div class="text">
+            Impulse responses following an identified oil price shock.
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- TURKEY -->
+
+      <div class="card">
+
+        <img
+          src="images/turkey.png"
+          alt="Turkey impulse response functions">
+
+        <div class="card-content">
+
+          <h2>Turkey</h2>
+
+          <div class="meta">
+            Oil-importing economy
+          </div>
+
+          <div class="text">
+            Impulse responses following an identified oil price shock.
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- CHINA -->
+
+      <div class="card">
+
+        <img
+          src="images/china.png"
+          alt="China impulse response functions">
+
+        <div class="card-content">
+
+          <h2>China</h2>
+
+          <div class="meta">
+            Emerging market economy
+          </div>
+
+          <div class="text">
+            Impulse responses following an identified oil price shock.
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- CHILE -->
+
+      <div class="card">
+
+        <img
+          src="images/chile.png"
+          alt="Chile impulse response functions">
+
+        <div class="card-content">
+
+          <h2>Chile</h2>
+
+          <div class="meta">
+            Emerging market economy
+          </div>
+
+          <div class="text">
+            Impulse responses following an identified oil price shock.
+          </div>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</body>
+</html>
