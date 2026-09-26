@@ -108,7 +108,31 @@
       cursor: pointer;
       margin-bottom: 20px;
     }
+    .shock-selector {
+        margin: 18px 0 14px;
+        max-width: 360px;
+    }
 
+    .shock-selector label {
+      display: block;
+      font-size: 12px;
+      color: #766f67;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .shock-selector select {
+      width: 100%;
+      background: white;
+      color: #1a1814;
+      border: 1px solid rgba(26,24,20,0.18);
+      border-radius: 8px;
+      padding: 11px 13px;
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 14px;
+      cursor: pointer;
+    }
     @media (max-width: 750px) {
       nav { padding: 16px 20px; }
       .nav-links { gap: 10px 14px; }
@@ -141,7 +165,20 @@
 
     <section aria-labelledby="country-results-heading">
       <h2 class="section-title" id="country-results-heading">Country Results</h2>
-      <p class="hint">Select a figure to open the full-resolution image in a new tab.</p>
+
+      <div class="shock-selector">
+        <label for="shock-select">Structural shock</label>
+      
+        <select id="shock-select">
+          <option value="aggregate-demand">Aggregate Demand Shock</option>
+          <option value="oil-supply">Oil Supply Shock</option>
+          <option value="oil-specific-demand">Oil-Specific Demand Shock</option>
+        </select>
+      </div>
+      
+      <p class="hint" id="shock-description">
+        Kilian aggregate demand shock.
+      </p>
       <p class="status" id="gallery-status" role="status" aria-live="polite" hidden></p>
       <button class="retry" id="retry-button" type="button" hidden>Try again</button>
       <noscript><p>Please enable JavaScript to display the research figures.</p></noscript>
@@ -178,7 +215,29 @@
       owner: "",
       repo: "",
       branch: "",
-      folder: "images"
+    
+      folders: {
+        "aggregate-demand": "images/aggregate-demand",
+        "oil-supply": "images/oil-supply",
+        "oil-specific-demand": "images/oil-specific-demand"
+      }
+    };
+
+    const SHOCK_INFO = {
+      "aggregate-demand": {
+        label: "Aggregate Demand Shock",
+        description: "Impulse responses to a Kilian aggregate demand shock."
+      },
+    
+      "oil-supply": {
+        label: "Oil Supply Shock",
+        description: "Impulse responses to a Kilian oil supply shock."
+      },
+    
+      "oil-specific-demand": {
+        label: "Oil-Specific Demand Shock",
+        description: "Impulse responses to a Kilian oil-specific demand shock."
+      }
     };
 
     // Mantiene le descrizioni specifiche già presenti nella pagina originale.
@@ -192,6 +251,8 @@
     const grid = document.getElementById("results-grid");
     const status = document.getElementById("gallery-status");
     const retry = document.getElementById("retry-button");
+    const shockSelect = document.getElementById("shock-select");
+    const shockDescription = document.getElementById("shock-description");
     let loading = false;
 
     function countryName(filename) {
@@ -204,7 +265,7 @@
       return (stem || "Research figure").toLowerCase().replace(/\b[a-z]/g, letter => letter.toUpperCase());
     }
 
-    function contentsURL() {
+    function contentsURL(folderPath) {
       const match = window.location.hostname.match(/^([^.]+)\.github\.io$/i);
       const owner = CONFIG.owner.trim() || (match ? match[1] : "");
       const directories = window.location.pathname.split("/").filter(Boolean);
@@ -216,7 +277,7 @@
         throw new Error("Set CONFIG.owner and CONFIG.repo, or open results.html on its published GitHub Pages URL.");
       }
 
-      const folder = CONFIG.folder.split("/").filter(Boolean).map(encodeURIComponent).join("/");
+      const folder = folderPath.split("/").filter(Boolean).map(encodeURIComponent).join("/");
       const url = new URL("https://api.github.com/repos/" + encodeURIComponent(owner) + "/" + encodeURIComponent(repo) + "/contents/" + folder);
       if (CONFIG.branch.trim()) url.searchParams.set("ref", CONFIG.branch.trim());
       return url;
@@ -260,13 +321,19 @@
       meta.textContent = COUNTRY_META.get(country.toLowerCase()) || "Emerging market economy";
       const description = document.createElement("div");
       description.className = "text";
-      description.textContent = "Impulse responses following an identified oil price shock.";
+      description.textContent =
+        SHOCK_INFO[shockSelect.value].description;
       content.append(title, meta, description);
       card.append(link, content);
       return card;
     }
 
     async function loadResults() {
+      const selectedShock = shockSelect.value;
+      const selectedFolder = CONFIG.folders[selectedShock];
+
+      shockDescription.textContent =
+        SHOCK_INFO[selectedShock].description;
       if (loading) return;
       loading = true;
       grid.setAttribute("aria-busy", "true");
@@ -279,7 +346,7 @@
       const timer = setTimeout(() => controller.abort(), 15000);
 
       try {
-        const response = await fetch(contentsURL(), {
+        const response = await fetch(contentsURL(selectedFolder), {
           headers: { Accept: "application/vnd.github+json" },
           cache: "no-store",
           credentials: "omit",
@@ -323,6 +390,11 @@
     }
 
     retry.addEventListener("click", loadResults);
+
+    shockSelect.addEventListener("change", () => {
+      loadResults();
+    });
+
     loadResults();
   </script>
 </body>
